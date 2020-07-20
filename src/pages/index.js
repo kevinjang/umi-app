@@ -1,7 +1,8 @@
 import styles from './index.css';
-import {Link} from 'umi'
+import { Link } from 'umi'
+import withBreadcrumbs from 'react-router-breadcrumbs-hoc'
 
-export default function() {
+function App1(props) {
   return (
     <div className={styles.normal}>
       {/* <div className={styles.welcome} /> */}
@@ -14,3 +15,4 @@ export default function() {
     </div>
   );
 }
+export default withBreadcrumbs()(App1)
