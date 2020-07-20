@@ -6,6 +6,8 @@ const { Sider, Header, Content, Footer } = Layout
 // import { routes } from '../../.umirc'
 import withBreadcrumbs from 'react-router-breadcrumbs-hoc'
 
+import CustomedMenu from '../pages/menus/index'
+
 function BasicLayout(props) {
   const [drawerOpen, setDrawerOpen] = useState(true)
   const [drawerWidth, setDrawerWidth] = useState(256)
@@ -28,7 +30,9 @@ function BasicLayout(props) {
           onClose={() => {
             setDrawerOpen(false)
             setDrawerWidth(0)
-          }}></Drawer>
+          }}>
+            <CustomedMenu />
+          </Drawer>
       </Sider>
       {console.log(window.innerWidth)}
       <Layout style={{width: `${window.innerWidth - drawerWidth}px`}}>
