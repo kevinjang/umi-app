@@ -20,6 +20,11 @@ export default {
             { path: '/test01/test01', component: '../pages/test01/test01' }
           ]
         },
+        {
+          path: '/dynamic_routes', routes: [
+            { path: '/dynamic_routes/:id', component: '../pages/dynamic_routes/[id]' }
+          ]
+        },
         { component: '../pages/404' }
       ]
     }

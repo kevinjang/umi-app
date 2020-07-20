@@ -1,11 +1,14 @@
 import styles from './index.css';
+import { useState } from 'react'
 import { Link } from 'umi'
-import { Layout, Breadcrumb } from 'antd'
+import { Layout, Breadcrumb, Drawer, Button } from 'antd'
 const { Sider, Header, Content, Footer } = Layout
 // import { routes } from '../../.umirc'
 import withBreadcrumbs from 'react-router-breadcrumbs-hoc'
 
 function BasicLayout(props) {
+  const [drawerOpen, setDrawerOpen] = useState(true)
+  const [drawerWidth, setDrawerWidth] = useState(256)
   // const url = props.match.url;
 
   // const routes = getRoutes(url)
@@ -17,14 +20,24 @@ function BasicLayout(props) {
   // return <Result />;
   const breadcrumbs = props.breadcrumbs;
   console.log('major layout index breadcrumbs:', breadcrumbs)
+
   return (
     <Layout style={{ height: '100vh' }}>
-      <Sider style={{ width: '20vw' }}>
-
+      <Sider width={drawerWidth} style={{ display: drawerOpen ? 'block' : 'none' }} >
+        <Drawer width={drawerWidth} visible={drawerOpen} mask={false} placement="left"
+          onClose={() => {
+            setDrawerOpen(false)
+            setDrawerWidth(0)
+          }}></Drawer>
       </Sider>
-      <Layout style={{ width: '80vw' }}>
+      {console.log(window.innerWidth)}
+      <Layout style={{width: `${window.innerWidth - drawerWidth}px`}}>
         <Header style={{ width: '100%', color: 'white', fontSize: '1.5rem' }}>
           KSNL
+          <Button style={{ float: 'right' }} onClick={() => {
+            setDrawerOpen(true)
+            setDrawerWidth(256)
+          }}>Open Drawer</Button>
         </Header>
         <div>
           <Breadcrumb style={{ padding: '10px' }}>
