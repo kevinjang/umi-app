@@ -69,7 +69,7 @@ function BasicLayout(props) {
             }
           </Breadcrumb>
         </div>
-        <Content style={{ backgroundColor: '#ffa39e' }}>
+        <Content style={{ backgroundColor: '#f0f5ff' }}>
           Root Layout
           {props.children}
         </Content>
