@@ -3,9 +3,9 @@ import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/ico
 
 const { SubMenu } = Menu;
 
-export default function () {
+export default function ({inlineCollapsed}) {
     return (
-        <Menu style={{ marginLeft: '-16px' }} onClick={(e) => {
+        <Menu inlineCollapsed={inlineCollapsed} style={{ marginLeft: '-16px' }} onClick={(e) => {
             console.log('click', e)
         }}
             style={{ width: 256 }}
