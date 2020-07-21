@@ -5,7 +5,7 @@ const { SubMenu } = Menu;
 
 export default function () {
     return (
-        <Menu onClick={(e) => {
+        <Menu style={{ marginLeft: '-16px' }} onClick={(e) => {
             console.log('click', e)
         }}
             style={{ width: 256 }}
