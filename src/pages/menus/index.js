@@ -1,14 +1,17 @@
-import { Menu } from 'antd'
-import { AppstoreOutlined, MailOutlined, SettingOutlined, PieChartOutlined } from '@ant-design/icons'
-
+import { Menu, Divider, Row, Col, Button } from 'antd'
+import { AppstoreOutlined, MailOutlined, SettingOutlined, PieChartOutlined, MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
+import { useState } from 'react'
+import { Link } from 'umi'
 const { SubMenu } = Menu;
 
 export default function (props) {
     // console.log('inlineCollapsed:', inlineCollapsed)
-    const {inlineCollapsed} = props
+    // const { inlineCollapsed, setDrawerOpenEx } = props
+
+    // const [inlineCollapsed, setInlineCollapsed] = useState(inlineCollapsedX)
     return (
         <Menu {...props} onClick={(e) => {
-            console.log('click', e)
+            // console.log('click', e)
         }}
             theme={"dark"}
             style={{ width: '100%', height: 'calc(100% - 64px)' }}
@@ -23,7 +26,7 @@ export default function (props) {
             }>
                 <Menu.ItemGroup key='g1' title='Item 1'>
                     <Menu.Item key="1">
-                        Option 1
+                        <Link to="/test01">Option 1</Link>
                     </Menu.Item>
                     <Menu.Item key="2">Option 2</Menu.Item>
                 </Menu.ItemGroup>
