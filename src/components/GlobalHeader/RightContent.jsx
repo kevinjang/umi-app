@@ -25,9 +25,9 @@ const GlobalHeaderRight = props => {
 
     return (
         <div className={className}>
-            <Tooltip title="使用文档">
+            <Tooltip title="使用文档" >
                 <a
-                    style={{ color: 'inherit' }}
+                    style={{ color: 'inherit', paddingTop: '13px' }}
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://pro.ant.design/docs/getting-started"

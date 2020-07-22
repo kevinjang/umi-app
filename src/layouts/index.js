@@ -37,7 +37,7 @@ function BasicLayout(props) {
         </Row>
       </Sider>
       <Layout style={{ width: `${window.innerWidth - drawerWidth}px` }}>
-        <Header className={styles.headerBg}>
+        <Header className={styles.headerBg} theme="light">
           KSNL
           {/* <Button style={{ float: 'right' }} onClick={() => {
             setDrawerOpen(!drawerOpen)
