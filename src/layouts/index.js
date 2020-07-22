@@ -32,7 +32,7 @@ function BasicLayout(props) {
           }
         >
         </Drawer> */}
-        <div style={{width: '100%', height: 64, color: 'white', fontSize: '1.5rem', padding: '13px 50px', backgroundColor: '#003a8c'}} >
+        <div style={{width: '100%', height: 64, color: 'white', fontSize: '1.5rem', paddingTop: '13px', paddingLeft: (drawerOpen?'50px': 0), paddingRight: (drawerOpen?'50px': 0), backgroundColor: '#003a8c', wordBreak: 'break-all', overflow: 'hidden'}} >
           LOGO HERE
         </div>
         <CustomedMenu inlineCollapsed={!drawerOpen} />
