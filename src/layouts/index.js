@@ -19,9 +19,9 @@ function BasicLayout(props) {
   const breadcrumbs = props.breadcrumbs;
   return (
     <Layout className={styles.layoutBg}>
-      <Sider width={drawerWidth} >
-      {/* style={{ display: drawerOpen ? 'block' : 'none' }}  */}
-        <Drawer closable={false} width={drawerWidth} visible={true} maskClosable={true} mask={false} maskStyle={{ opacity: 0 }} placement="left" bodyStyle={{ marginTop: '20px' }}
+      <Sider width={drawerWidth} collapsed={!drawerOpen} reverseArrow={true} theme={"dark"}>
+        {/* style={{ display: drawerOpen ? 'block' : 'none' }}  */}
+        {/* <Drawer closable={false} width={drawerWidth} visible={true} maskClosable={true} mask={false} maskStyle={{ opacity: 0 }} placement="left" bodyStyle={{ marginTop: '20px' }}
           onClose={() => {
             setDrawerOpen(false)
             setDrawerWidth(drawerFoldWidth)
@@ -31,22 +31,25 @@ function BasicLayout(props) {
             <CustomedFooter drawerOpen />
           }
         >
-          <CustomedMenu inlineCollapsed={!drawerOpen} />
-        </Drawer>
-        <Button id="btnToggleDrawer" style={{ left: drawerWidth - 1, position: 'absolute' }} icon={
+        </Drawer> */}
+        <div style={{width: '100%', height: 64, color: 'white', fontSize: '1.5rem', padding: '13px 50px', backgroundColor: '#003a8c'}} >
+          LOGO HERE
+        </div>
+        <CustomedMenu inlineCollapsed={!drawerOpen} />
+        {/* <Button id="btnToggleDrawer" style={{ left: drawerWidth - 1, position: 'absolute' }} icon={
           drawerOpen ? <ArrowLeftOutlined /> : <ArrowRightOutlined />
         } onClick={() => {
           setDrawerOpen(!drawerOpen)
           // setDrawerWidth(drawerOpen? drawerFoldWidth:drawerOpenWidth)
-        }}></Button>
+        }}></Button> */}
       </Sider>
       <Layout style={{ width: `${window.innerWidth - drawerWidth}px` }}>
         <Header className={styles.headerBg}>
           KSNL
           <Button style={{ float: 'right' }} onClick={() => {
-            setDrawerOpen(true)
+            setDrawerOpen(!drawerOpen)
             setDrawerWidth(drawerOpenWidth)
-          }}>Open Drawer</Button>
+          }}>Toggle Menu</Button>
         </Header>
         <div>
           <Breadcrumb className={styles.breadcrumb}>

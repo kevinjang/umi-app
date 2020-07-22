@@ -1,14 +1,17 @@
 import { Menu } from 'antd'
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons'
+import { AppstoreOutlined, MailOutlined, SettingOutlined, PieChartOutlined } from '@ant-design/icons'
 
 const { SubMenu } = Menu;
 
-export default function ({inlineCollapsed}) {
+export default function (props) {
+    // console.log('inlineCollapsed:', inlineCollapsed)
+    const {inlineCollapsed} = props
     return (
-        <Menu inlineCollapsed={inlineCollapsed} style={{ marginLeft: '-16px' }} onClick={(e) => {
+        <Menu {...props} onClick={(e) => {
             console.log('click', e)
         }}
-            style={{ width: 256 }}
+            theme={"dark"}
+            style={{ width: '100%', height: 'calc(100% - 64px)' }}
             defaultSelectedKeys={['1']}
             defaultOpenKeys={['sub1']}
             mode='inline'>
@@ -55,6 +58,9 @@ export default function ({inlineCollapsed}) {
                 <Menu.Item key="11">Option 11</Menu.Item>
                 <Menu.Item key="12">Option 12</Menu.Item>
             </SubMenu>
+            {/* <Menu.Item key="1" icon={<PieChartOutlined />}>
+                Option 1
+            </Menu.Item> */}
         </Menu>
     )
 }
