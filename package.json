@@ -9,9 +9,13 @@
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
     "antd": "^4.4.2",
+    "classnames": "^2.2.6",
+    "dva": "^2.4.1",
+    "moment": "^2.27.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-router-breadcrumbs-hoc": "^3.2.10"
+    "react-router-breadcrumbs-hoc": "^3.2.10",
+    "use-merge-value": "^1.0.2"
   },
   "devDependencies": {
     "@umijs/preset-react": "^1.5.17",
