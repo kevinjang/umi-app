@@ -5,8 +5,11 @@ export default {
     dark: false,
     compact: true
   },
-  dva: false,
+  dva: {
+    hmr: true
+  },
   title: 'umi-app',
+  // plugins:['@umijs/plugin-dva'],
   routes: [
     {
       path: '/',
