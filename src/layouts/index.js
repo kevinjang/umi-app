@@ -25,7 +25,7 @@ function BasicLayout(props) {
       <Sider width={drawerWidth} collapsed={!drawerOpen} reverseArrow={true} theme={"dark"}>
         {/* style={{ display: drawerOpen ? 'block' : 'none' }}  */}
 
-        <div style={{ width: '100%', height: 64, color: 'white', fontSize: '1.5rem', paddingTop: '13px', paddingLeft: (drawerOpen ? '50px' : 0), paddingRight: (drawerOpen ? '50px' : 0), backgroundColor: '#003a8c', wordBreak: 'break-all', overflow: 'hidden' }} >
+        <div className={`${styles.logoMain} ${drawerOpen?styles.unfold:styles.fold}`} >
           LOGO HERE
         </div>
         <CustomedMenu />

@@ -1,9 +1,11 @@
 import { Tooltip, Tag } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import React from 'react';
+import {connect} from 'dva'
 
 // import { connect, SelectLang } from 'umi'
 import styles from './index.less'
+import NoticeIconView from './NoticeIconView'
 
 const {REACT_APP_ENV} = process.env;
 
@@ -36,6 +38,7 @@ const GlobalHeaderRight = props => {
                     <QuestionCircleOutlined />
                 </a>
             </Tooltip>
+            <NoticeIconView />
             {REACT_APP_ENV && (
                 <span>
                     <Tag color={ENVTagColor[REACT_APP_ENV]}>{REACT_APP_ENV}</Tag>
@@ -46,4 +49,8 @@ const GlobalHeaderRight = props => {
     )
 }
 
-export default GlobalHeaderRight
+export default connect(({ settings }) => ({
+    theme: settings.navTheme,
+    layout: settings.layout,
+  }))(GlobalHeaderRight);
+  
