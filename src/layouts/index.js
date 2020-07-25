@@ -1,5 +1,6 @@
 import styles from './index.css';
 import { useState } from 'react'
+import { connect } from 'dva'
 import { Link } from 'umi'
 import { Layout, Breadcrumb, Drawer, Button, notification, Row, Col, Divider } from 'antd'
 
@@ -25,12 +26,12 @@ function BasicLayout(props) {
       <Sider width={drawerWidth} collapsed={!drawerOpen} reverseArrow={true} theme={"dark"}>
         {/* style={{ display: drawerOpen ? 'block' : 'none' }}  */}
 
-        <div className={`${styles.logoMain} ${drawerOpen?styles.unfold:styles.fold}`} >
+        <div className={`${styles.logoMain} ${drawerOpen ? styles.unfold : styles.fold}`} >
           LOGO HERE
         </div>
         <CustomedMenu />
         <Row style={{ backgroundColor: 'inherit', height: '30px', width: '100%', position: 'absolute', bottom: '0px', borderTop: '1px solid black' }}>
-          
+
           <Button theme="dark" onClick={() => {
             setDrawerOpen(!drawerOpen)
           }}>{drawerOpen ? <MenuFoldOutlined /> : <MenuUnfoldOutlined />}</Button>
@@ -41,7 +42,7 @@ function BasicLayout(props) {
           KSNL
           {/* <Button style={{ float: 'right' }} onClick={() => {
             setDrawerOpen(!drawerOpen)
-          }}>Toggle Menu</Button> */} 
+          }}>Toggle Menu</Button> */}
           <RightContent />
         </Header>
         <div>
@@ -65,4 +66,7 @@ function BasicLayout(props) {
     </Layout>
   );
 }
-export default withBreadcrumbs()(BasicLayout);
+export default connect(({ global, settings }) => ({
+  collapsed: global.collapsed,
+  settings,
+}))(withBreadcrumbs()(BasicLayout));
