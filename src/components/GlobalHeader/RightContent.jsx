@@ -29,7 +29,7 @@ const GlobalHeaderRight = props => {
         <div className={className}>
             <Tooltip title="使用文档" >
                 <a
-                    style={{ color: 'inherit', paddingTop: '13px' }}
+                    style={{ color: 'inherit', fontSize: '1rem' }}
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://pro.ant.design/docs/getting-started"
@@ -49,8 +49,10 @@ const GlobalHeaderRight = props => {
     )
 }
 
-export default connect(({ settings }) => ({
+export default connect(({
+    settings
+})=>({
     theme: settings.navTheme,
-    layout: settings.layout,
-  }))(GlobalHeaderRight);
+    layout: settings.layout
+}))(GlobalHeaderRight);//connect()();
   

@@ -60,29 +60,29 @@ const NoticeList = ({
                                 description={
                                     <div>
                                         <div className={styles.description}>{item.description}</div>
-                                <div className={styles.datetime}>{item.datetime}</div>
+                                        <div className={styles.datetime}>{item.datetime}</div>
                                     </div>
                                 }
-                            ></List.Item.Meta>
+                            />
                         </List.Item>
                     )
                 }} />
-                <div className={styles.bottomBar}>
-                    {showClear? (
-                        <div onClick={onClear}>
-                            {clearText} {title}
-                        </div>
-                    ): null}
-                    {showViewMore? (
-                        <div onClick={e=>{
-                            if(onViewMore){
-                                onViewMore(e);
-                            }
-                        }} >
-                            {viewMoreText}
-                        </div>
-                    ): null}
-                </div>
+            <div className={styles.bottomBar}>
+                {showClear ? (
+                    <div onClick={onClear}>
+                        {clearText} {title}
+                    </div>
+                ) : null}
+                {showViewMore ? (
+                    <div onClick={e => {
+                        if (onViewMore) {
+                            onViewMore(e);
+                        }
+                    }} >
+                        {viewMoreText}
+                    </div>
+                ) : null}
+            </div>
         </div>
     )
 }

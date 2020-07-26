@@ -1,4 +1,4 @@
-import { BellOutlined, VerticalAlignTopOutlined } from '@ant-design/icons'
+import { BellOutlined } from '@ant-design/icons'
 import { Badge, Spin, Tabs } from 'antd'
 import useMergeValue from 'use-merge-value'
 import React from 'react'
@@ -46,7 +46,7 @@ const NoticeIcon = props => {
                         data={list}
                         onClear={() => onClear && onClear(title, tabKey)}
                         onClick={item => onItemClick && onItemClick(item, child.props)}
-                        onViewMore={event=>onViewMore && onViewMore(child.props, event)}
+                        onViewMore={event => onViewMore && onViewMore(child.props, event)}
                         showClear={showClear}
                         showViewMore={showViewMore}
                         title={title}
@@ -64,32 +64,38 @@ const NoticeIcon = props => {
         )
     };
 
-    const {className, count, bell } = props;
-    const [visible, setVisible] = useMergeValue(false,{
+    const { className, count, bell } = props;
+    const [visible, setVisible] = useMergeValue(false, {
         value: props.popupVisible,
         onChange: props.onPopupVisibleChange,
     });
 
     const noticeButtonClass = classNames(className, styles.noticeButton);
     const notificationBox = getNotificationBox();
-    const NoticeBellIcon = bell || <BellOutlined className={styles.icon}/>
+    const NoticeBellIcon = bell || <BellOutlined className={styles.icon} />
     const trigger = (
         <span className={classNames(noticeButtonClass, {
             opened: visible
         })}>
-            <Badge count={count} style={{boxShadow: 'none',}} className={styles.badge}>
+            <Badge count={count} style={{ boxShadow: 'none', }} className={styles.badge}>
                 {NoticeBellIcon}
             </Badge>
         </span>
     );
 
-    if(!notificationBox){
+    if (!notificationBox) {
         return trigger;
     }
 
     return (
-        <HeaderDropdown placement="bottomRight" overlay={notificationBox} 
-        overlayClassName={styles.popover} trigger={['click']} visible={visible} onVisibleChange={setVisible}>
+        <HeaderDropdown
+            placement="bottomRight"
+            overlay={notificationBox}
+            overlayClassName={styles.popover}
+            trigger={['click']}
+            visible={visible}
+            onVisibleChange={setVisible}
+        >
             {trigger}
         </HeaderDropdown>
     )
@@ -100,5 +106,4 @@ NoticeIcon.defaultProps = {
 };
 
 NoticeIcon.Tab = NoticeList;
-
 export default NoticeIcon;

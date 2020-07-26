@@ -61,12 +61,12 @@ function BasicLayout(props) {
           {/* Root Layout */}
           {props.children}
         </Content>
-        <Footer ><CopyrightOutlined />KEVIN JANG 2020</Footer>
+        <Footer className={styles.footerMain} ><CopyrightOutlined />KEVIN JANG 2020</Footer>
       </Layout>
     </Layout>
   );
 }
-export default connect(({ global, settings }) => ({
+export default connect(({ global}) => ({//, settings 
   collapsed: global.collapsed,
-  settings,
+  // settings,
 }))(withBreadcrumbs()(BasicLayout));

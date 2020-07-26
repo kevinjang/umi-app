@@ -101,7 +101,9 @@ class GlobalHeaderRight extends Component {
         const unreadMsg = this.getUnreadData(noticeData);
 
         return (
-            <NoticeIcon className={styles.action} count={currentUser && currentUser.unreadCount}
+            <NoticeIcon 
+                className={styles.action} 
+                count={currentUser && currentUser.unreadCount}
                 onItemClick={item => {
                     this.changeReadState(item);
                 }}
@@ -116,7 +118,7 @@ class GlobalHeaderRight extends Component {
                 <NoticeIcon.Tab
                     tabKey="notification"
                     count={unreadMsg.notification}
-                    list={unreadMsg.notification}
+                    list={noticeData.notification}
                     title="通知"
                     emptyText="你已查看所有通知"
                     showViewMore />
